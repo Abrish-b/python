@@ -4,7 +4,6 @@ import dis
 from os import write
 from calculator_1 import *
 from variable_load_5 import a
-import hidden
 import hidden_4 as hidden
 import sys
 from add_0 import add
@@ -44,7 +43,8 @@ for i in dir(hidden):
 print(a)
 
 
-Calculator
+#Calculator
+
 if len(sys.argv) == 4:
     a = int(sys.argv[1])
     b = int(sys.argv[3])
