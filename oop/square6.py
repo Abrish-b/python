@@ -14,11 +14,13 @@ class Square:
         return self.__size**2
 
     def my_print(self):
-        if self.size != 0 and self.position > (0, 0):
-            for i, k in zip(range(0, self.size), range(0, self.position[0])):
-                for j, m in zip(range(0, self.size), range(0, self.position[1])):
-                    sys.stdout.write(k*'-')
-                    sys.stdout.write(1*'#')
+        if self.position >= (0, 0):
+            for l in range(0, self.position[1]):
+                sys.stdout.write('\n')
+            for j in range(0, self.size):
+                sys.stdout.write(
+                    ''.join(' ' for k in range(0, self.position[0])))
+                sys.stdout.write(''.join('#' for l in range(0, self.size)))
                 sys.stdout.write('\n')
         else:
             sys.stdout.write('\n')
@@ -33,10 +35,10 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if type(value) is not tuple and len(value) != 2 and value[0] is not int and value[0] < 0 and value[1] is not int and value[0] < 0:
-            raise TypeError('position must be a tuple of 2 positive integers')
+        if value >= (0, 0) and type(value) is tuple:
+            self.__position = value
         else:
-            set.__position = value
+            raise TypeError('position must be a tuple of 2 positive integers')
 
     @size.setter
     def size(self, value):
